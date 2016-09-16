@@ -1,6 +1,7 @@
-# generator-angular-dft [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Angular ui-router Restangular
+# generator-s-angular [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Angular ui-router Restangular </br>
 > Generator of simple Angular project with some basic docs.
+
 
 ## Installation
 
@@ -27,3 +28,11 @@ yo angular-dft
 ## License
 
 Apache © [Sajera]()
+
+
+[npm-image]: https://badge.fury.io/js/generator-angular-dft.svg
+[npm-url]: https://npmjs.org/package/generator-angular-dft
+[travis-image]: https://travis-ci.org/n/generator-angular-dft.svg?branch=master
+[travis-url]: https://travis-ci.org/n/generator-angular-dft
+[daviddm-image]: https://david-dm.org/n/generator-angular-dft.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/n/generator-angular-dft
