@@ -1,22 +1,20 @@
-# generator-s-angular [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-angular-dft [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Angular ui-router Restangular
-
-# angular-generator
-Generator of simple Angular project with some basic docs.
+> Generator of simple Angular project with some basic docs.
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-s-angular using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-angular-dft using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-s-angular
+npm install -g generator-angular-dft
 ```
 
 Then generate your new project:
 
 ```bash
-yo s-angular
+yo angular-dft
 ```
 
 ## Getting To Know Yeoman
@@ -29,11 +27,3 @@ yo s-angular
 ## License
 
 Apache © [Sajera]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-s-angular.svg
-[npm-url]: https://npmjs.org/package/generator-s-angular
-[travis-image]: https://travis-ci.org/n/generator-s-angular.svg?branch=master
-[travis-url]: https://travis-ci.org/n/generator-s-angular
-[daviddm-image]: https://david-dm.org/n/generator-s-angular.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/n/generator-s-angular
