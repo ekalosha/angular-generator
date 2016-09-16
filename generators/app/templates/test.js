@@ -1,0 +1,4 @@
+
+<%- index.title %>
+
+<%- index.app %>

@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "angular": "1.5.8",
+    "lodash": "^4.15.0",
+    "PACE": "pace#1.0.2",
+    "bootstrap": "3.3.7",
+    "restangular": "^1.5.2",
+    "angular-base64": "^2.0.5",
+    "angular-animate": "^1.5.8",
+    "angular-ui-utils": "^3.0.0",
+    "angular-ui-router": "^0.3.1",
+    "angular-ui-bootstrap": "^2.1.3",
+    "font-awesome": "fontawesome#^4.6.3"
+  },
+  "overrides": {
+    "angular": {"main": ["angular.min.js"]},
+    "jquery": {"main": ["dist/jquery.min.js"]},
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.min.js",
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    }
+  },
+  "devDependencies": {}
+}
