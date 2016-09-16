@@ -1,5 +1,7 @@
-# generator-s-angular [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Angular ui-router Restangular </br>
+# Sorry release not ready yet.
+
+# generator-angular-dft [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Angular ui-router restangular ui-bootstrap </br>
 > Generator of simple Angular project with some basic docs.
 
 

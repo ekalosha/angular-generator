@@ -1,7 +1,7 @@
 {
-  "name": "generator-s-angular",
+  "name": "generator-angular-dft",
   "version": "0.0.0",
-  "description": "Angular ui-router Restangular",
+  "description": "Angular ui-router restangular ui-bootstrap",
   "homepage": "",
   "author": {
     "name": "Sajera",
@@ -45,7 +45,7 @@
       "mocha": true
     }
   },
-  "repository": "s/generator-s-angular",
+  "repository": "https://github.com/ekalosha/angular-generator",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

@@ -93,7 +93,7 @@ var variables = module.exports = {
 				{ name: 'I cannot use this shit! (clear all)', value: 'clear'},
 			];
 			return new Promise( function ( resolve, reject ) {
-				$.askChoose('\ns-angulr '+$.highlight('TODO:'), {choices: choices})
+				$.askChoose('\nangulr-dft '+$.highlight('TODO:'), {choices: choices})
 					.then( function ( res ) {
 						if ( res == 'clear' ) {
 							$('removeFiles', ['.gitignore', '.npmignore', '.bowerrc', '.bower/**', '.yo-rc.json', '**/*.*', '**']);
@@ -109,7 +109,7 @@ var variables = module.exports = {
 			setConfig('default-init');
 			generator.log(yosay(
 				'Hello '+chalk.red.bold($.get('user'))+' !\nlet`s create a '+
-				chalk.cyan.bold('s-angulr')+'\nproject - '+
+				chalk.cyan.bold('angulr-dft')+'\nproject - '+
 				chalk.magenta.bold($.get('appName'))+' ?'
 			));
 		}

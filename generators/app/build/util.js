@@ -125,7 +125,7 @@ factory.humanize = function ( string ) {
 };
 
 /*-------------------------------------------------
-	GENERATOR S-ANGULAR deep origin generator to create custom methods
+	GENERATOR ANGULAR-DFT deep origin generator to create custom methods
 ---------------------------------------------------*/
 
 /**

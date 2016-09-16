@@ -7,7 +7,7 @@ var yosay = require('yosay');
 var beautify = require('gulp-beautify');
 
 /*-------------------------------------------------
-	GENERATOR S-ANGULAR
+	GENERATOR ANGULAR-DFT
 ---------------------------------------------------*/
 var $ = require('./build/util.js');
 var variables = require('./build/variables.js');

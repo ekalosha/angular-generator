@@ -4,7 +4,7 @@
 var fs = require('fs');
 
 /*-------------------------------------------------
-	GENERATOR S-ANGULAR
+	GENERATOR ANGULAR-DFT
 ---------------------------------------------------*/
 var $ = require('./util.js');
 
