@@ -29,13 +29,11 @@ var writeFiles = require('./build/writefiles.js');
  *
  * extend - (futures) can offer add in your aplication angular parts:
 		all the additional parts will be added to the core (.yo-rc.json) application module as a dependent on his elements
-		oauth -
-		filters - 
 		dummy service -
 		dummy filter -
 		dummy interceptor -
 
- * clear - it clear all files in derictory
+ * clear - it clear all files into directory
  */
 module.exports = yeoman.Base.extend({
 	/*-------------------------------------------------
@@ -90,22 +88,22 @@ module.exports = yeoman.Base.extend({
 				// merge project/template package.json and options from variables
 				writeFiles.writePackage('package.json', packageOptions);
 			}
-		},
-		extend: function () { return 'futures'; }
+		}
 	},
 	/*-------------------------------------------------
 		PHASE DEFAULT
 	---------------------------------------------------*/
 	default: {
 		instalation: function () {
-			var generator = this;
 			var config = $.get();
 			if ( config['instalation'] == 'progress' ) {
-				console.log('instalation default');
+				this.log('\ninstalation default\n');
+			} else if ( config['_privat']['repair'] ) {
+				this.log('\nrepair default\n');
+			} else if ( config['_privat']['extend'] ) {
+				this.log('\nextend default\n');
 			}
-		},	
-		repair: function () { return 'futures'; },
-		extend: function () { return 'futures'; }
+		}
 	},
 	/*-------------------------------------------------
 		PHASE WRITING
@@ -116,40 +114,26 @@ module.exports = yeoman.Base.extend({
 			var config = $.get();
 			if ( config['instalation'] == 'progress' || config['_privat']['repair'] ) {
 				if ( config['instalation'] == 'progress' ) {
-					// just empty dirs - map of futures project
-					$.createDirs([
-						'source/assets/images',
-						'source/assets/fonts',
-						'source/styles/vendor',
-						'source/styles/less',
-						'source/styles/sass',
-						'source/styles/styl',
-						'source/app/directives',
-						'source/app/filters',
-						'source/app/interceptors',
-						'source/app/services',
-						'source/app/states'
-					]);
 					// simple copy files
 					$.copy([
+						'.bowerrc',
 						'.gitignore',
 						'.npmignore',
-						'.bowerrc',
 						'source/assets/images/favicon.ico',
 						'source/assets/images/favicon-16x16.png',
 						'source/assets/images/favicon-32x32.png',
 					]);
-
-					// basic dummy for angular project for this gulpfile
+					// basic dummy for angular project
 					writeFiles.angularDummy();
 				}
-
 				// build gulp tasks with choosed preprocessors
 				writeFiles.gulpTasks();
 			}
 		},
 		extend: function () {
-
+			if ( config['_privat']['extend'] ) {
+				// console.log('extend writing');
+			}
 		}
 	},
 	/*-------------------------------------------------
@@ -160,18 +144,49 @@ module.exports = yeoman.Base.extend({
 			var generator = this;
 			var config = $.get();
 			if ( config['instalation'] == 'progress' ) {
-				console.log('instalation conflicts');
+				// console.log('instalation conflicts');
 			}
 		},
-		repair: function () { return 'futures'; },
-		extend: function () { return 'futures'; }
+		repair: function () {
+			var generator = this;
+			var config = $.get();
+			if ( config['_privat']['repair'] ) {
+				// console.log('repair conflicts');
+			}
+		},
+		extend: function () {
+			var generator = this;
+			var config = $.get();
+			if ( config['_privat']['extend'] ) {
+				// console.log('extend conflicts');
+			}
+		}
 	},
 	/*-------------------------------------------------
 		PHASE INSTALATION
 	---------------------------------------------------*/
 	install: {
-		repair: function () { return 'futures'; },
-		extend: function () { return 'futures'; }
+		instalation: function () {
+			var generator = this;
+			var config = $.get();
+			if ( config['instalation'] == 'progress' ) {
+				// console.log('instalation install');
+			}
+		},
+		repair: function () {
+			var generator = this;
+			var config = $.get();
+			if ( config['_privat']['repair'] ) {
+				// console.log('repair install');
+			}
+		},
+		extend: function () {
+			var generator = this;
+			var config = $.get();
+			if ( config['_privat']['extend'] ) {
+				// console.log('extend install');
+			}
+		}
 	},
 	/*-------------------------------------------------
 		PHASE AFTER ALL
@@ -179,13 +194,12 @@ module.exports = yeoman.Base.extend({
 	end: {
 		instalation: function () {
 			var config = $.get();
-			this.log( // say bye
-				yosay(
-					chalk.white('\nThank you very much, it`s been a')+' '+
-					chalk.red.bold('pleasure')+'\ndoing business with you '+
-					chalk.cyan(config['user'])+' .'
-				)
-			);
+			// say bye
+			this.log(yosay(
+				chalk.white('\nThank you very much, it`s been a')+' '+
+				chalk.red.bold('pleasure')+'\ndoing business with you '+
+				chalk.cyan(config['user'])+' .'
+			));
 			$('clearConfig', '_privat');
 			$.set('instalation', 'complete');
 		},

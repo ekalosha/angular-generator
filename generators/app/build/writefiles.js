@@ -66,8 +66,23 @@ module.exports = {
 	 * prepering source to extend addition modules
 	 */
 	angularDummy: function () {
-		var variables = $.get();
 
+		// just empty dirs - map of futures project
+		$.createDirs([
+			'source/assets/images',
+			'source/assets/fonts',
+			'source/styles/vendor',
+			'source/styles/less',
+			'source/styles/sass',
+			'source/styles/styl',
+			'source/app/directives',
+			'source/app/filters',
+			'source/app/interceptors',
+			'source/app/services',
+			'source/app/states'
+		]);
+
+		var variables = $.get();
 		var angularVariables = {
 			index: {
 				title: $('humanize', variables.appName),
@@ -79,9 +94,10 @@ module.exports = {
 			'source/index.html',
 			'source/app/app.js',
 			'source/app/config.js',
-			'source/app/state/layout.html',
-			'source/app/state/layout.module.js',
-			'source/app/state/layout.controller.js',
+			'source/app/states/layout.html',
+			'source/app/states/layout.module.js',
+			'source/app/states/layout.controller.js',
+			'source/app/filters/humanize.filter.js'
 		];
 		// template copy
 		$.copy(files, angularVariables);
