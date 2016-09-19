@@ -15,7 +15,7 @@ angular
 		$stateProvider.state('layout', {
 			url: '/layout',
 			abstract: true,
-			templateUrl: 'source/app/states/layout.html',
+			templateUrl: 'app/states/layout.html',
 			controller: 'layoutController',
 			/**
 			* before load a root view it makes sense to try to restore session
