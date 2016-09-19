@@ -63,7 +63,19 @@ module.exports = yeoman.Base.extend({
 				});
 			}
 		},
-		extend: function () { return 'futures'; }
+		extend: function () {
+			var config = $.get();
+			if ( config['_privat']['extend'] ) {
+				console.log('extend writing', config['_privat']['extend']);
+				// return new Promise( function ( resolve, reject ) {
+				// 	variables.main().then( function () {
+				// 		variables.preprocessors().then(function () {
+				// 			variables.angularName().then(resolve);
+				// 		});
+				// 	});
+				// });
+			}
+		},
 	},
 	/*-------------------------------------------------
 		PHASE CONFIGURATION 
@@ -124,15 +136,31 @@ module.exports = yeoman.Base.extend({
 						'source/assets/images/favicon-32x32.png',
 					]);
 					// basic dummy for angular project
-					writeFiles.angularDummy();
+					writeFiles.angularApp();
 				}
 				// build gulp tasks with choosed preprocessors
 				writeFiles.gulpTasks();
 			}
 		},
 		extend: function () {
+			var config = $.get();
 			if ( config['_privat']['extend'] ) {
-				// console.log('extend writing');
+				return new Promise( function ( resolve, reject ) {
+					function action () {
+						$.askСonfirm('Make a '+$.highlight('dummy')+' ?')
+							.then(function ( again ) {
+								if ( again ) {
+									// DUMMY
+									writeFiles.makeAngularDummy()
+										.then(function () { action(); });
+								} else {
+									resolve();
+								}
+						});
+					}
+					// start a loop
+					action();
+				});
 			}
 		}
 	},
@@ -196,9 +224,9 @@ module.exports = yeoman.Base.extend({
 			var config = $.get();
 			// say bye
 			this.log(yosay(
-				chalk.white('\nThank you very much, it`s been a')+' '+
+				chalk.white('\nThank you, it`s been a')+' '+
 				chalk.red.bold('pleasure')+'\ndoing business with you '+
-				chalk.cyan(config['user'])+' .'
+				chalk.cyan(config['user'])+'.'
 			));
 			$('clearConfig', '_privat');
 			$.set('instalation', 'complete');

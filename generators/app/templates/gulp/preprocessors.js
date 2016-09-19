@@ -83,7 +83,7 @@ function stylus ( source, dest ) {
 
 // package eslint dependencies
 // "gulp-eslint": "^3.0.1",
-gulp.task('eslint', <%-preprocessors.js%> function () { return eslint( eslintPath ); });
+gulp.task('eslint', <%-gulp.js%> function () { return eslint( eslintPath ); });
 function eslint ( source ) {
 	/*-------------------------------------------------
 		goes here to customize rules "eslint"
@@ -110,4 +110,4 @@ function eslint ( source ) {
  	By default, this tasks write yo s-angular props
 	but you can use it as a working example
 ---------------------------------------------------*/
-gulp.task('preprocessor', [<%-preprocessors.css%>]);
+gulp.task('preprocessor', [<%-gulp.css%>]);

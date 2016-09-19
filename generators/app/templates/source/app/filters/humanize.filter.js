@@ -3,7 +3,7 @@
 
 angular
 	// as a deep for root module
-	.module('<%=index.app%>')
+	.module('<%=angular.app%>')
 	// filter injector name
 	.filter('humanizeFilter', function () {
 		// filter method

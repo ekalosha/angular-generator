@@ -1,5 +1,6 @@
 
 'use strict';
+
 var yosay = require('yosay');
 var chalk = require('chalk');
 var $ = require('./util.js');
@@ -12,9 +13,7 @@ var initOptions = {
 	'npmInit': false,
 	'modules': {
 		'root': 'app',
-		'filters': [],
-		'servisec': [],
-		'directives': [], 
+
 	},
 	'instalation': 'progress', // checking and store state of instalation
 	'_privat': {
@@ -29,7 +28,7 @@ function setConfig ( type ) {
 		case 'extend':
 			config['_privat'] = {
 				'repair': false,
-				'extend': [],
+				'extend': true,
 			};
 		// here the repair configuration (without installation prompting)
 		break;case 'repair':
@@ -96,7 +95,10 @@ var variables = module.exports = {
 				$.askChoose('\nangulr-dft '+$.highlight('TODO:'), {choices: choices})
 					.then( function ( res ) {
 						if ( res == 'clear' ) {
-							$('removeFiles', ['.gitignore', '.npmignore', '.bowerrc', '.bower/**', '.yo-rc.json', '**/*.*', '**']);
+							$('removeFiles', [
+								'.gitignore', '.npmignore', '.bowerrc', '.bower/**',
+								'.tmp/**', '.yo-rc.json', '**/*.*', '**'
+							]);
 							$('preventInstalation'); // throw error
 						} else {
 							setConfig(res);
@@ -212,26 +214,6 @@ var variables = module.exports = {
 					resolve();
 				});
 		});
-	},
-	/**
-	 * angular extend implementation
-	 */
-	angularExtend: function () {
-				//
-		$.askChooseFew('Which '+$.highlight('filters')+' you want to add ?',{
-			choices: [
-				{name: 'Dummy', value: 'dummy', checked: true },
-				{name: 'Dummy', value: 'dummy', checked: true },
-				{name: 'Dummy', value: 'dummy', checked: true },
-			]
-		})
-		.then( function ( npmInit ) {
-			$.askСonfirm('Initialize the '+$.highlight('Bower')+' ?', {store: 'bowerInit'})
-				.then( function ( bowerInit ) {
-					resolve({ 'bower': bowerInit, 'npm': npmInit });
-				});
-		});
-
 	}
 
 };

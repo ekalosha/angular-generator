@@ -123,6 +123,30 @@ factory.humanize = function ( string ) {
 		.toLowerCase()
 		.replace(/^.{1,1}/, function ( sib ) { return sib.toUpperCase(); });
 };
+/**
+ * Make name fine to angular injections
+ *
+ * @param: { String }
+ * @returns: { String }
+ */
+factory.angularize = function ( string, firstCapital ) {
+
+	return string
+		// spec
+		.replace(/[\W_]+/g, ' ')
+		// normalize
+		.replace(/\s+/g, ' ')
+		// trim
+		.replace(/^\s*|\s*$/g, '')
+		// first capital only if cpecified
+		.replace(/^.{1,1}/, function ( match ) {
+			return firstCapital ? match.toUpperCase() : match.toLowerCase();
+		})
+		// lazy format camelcase
+		.replace(/(\s\w)/g, function ( match ) {
+			return match[1].toUpperCase();
+		});
+},
 
 /*-------------------------------------------------
 	GENERATOR ANGULAR-DFT deep origin generator to create custom methods

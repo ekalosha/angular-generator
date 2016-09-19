@@ -77,7 +77,7 @@ var injectOptions = {
 	// 	}
 	// }
 };
-function injectAngular ( scripts ) {
+function injectAngular () {
 	return gulp
 		.src( indexPath )
 		.pipe( $.inject(angularFilter(), injectOptions) )

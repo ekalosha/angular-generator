@@ -97,7 +97,7 @@ var minOptions = {
 ---------------------------------------------------*/
 var createOptions = {
 	standalone: false,
-	module: '<%=index.app%>',
+	module: '<%=gulp.root%>',
 	root: '',
 };
 function formatTemplateCache ( templates ) {

@@ -39,15 +39,12 @@ module.exports = {
 	gulpTasks: function () {
 		var variables = $.get();
 		var gulpVariables = {};
-		gulpVariables.preprocessors = { // format correctly string to include in js =)
+		gulpVariables.gulp = { // format correctly string to include in js =)
 			css: variables.preprocessors.css ? "'eslint','"+variables.preprocessors.css+"'" : "'eslint'", 
 			js: variables.preprocessors.js ? "['"+variables.preprocessors.js+"']" : '',
-		};
-		gulpVariables.index = {
-			app: variables.modules,
+			root: variables.modules.root
 		};
 		var files = [
-			'environment/config.template.js',
 			'environment/development.json',
 			'environment/production.json',
 			'gulp/preprocessors.js',
@@ -65,7 +62,7 @@ module.exports = {
 	 * write dummy for angular project
 	 * prepering source to extend addition modules
 	 */
-	angularDummy: function () {
+	angularApp: function () {
 
 		// just empty dirs - map of futures project
 		$.createDirs([
@@ -84,7 +81,7 @@ module.exports = {
 
 		var variables = $.get();
 		var angularVariables = {
-			index: {
+			angular: {
 				title: $('humanize', variables.appName),
 				app: variables.modules.root
 			},
@@ -94,14 +91,59 @@ module.exports = {
 			'source/index.html',
 			'source/app/app.js',
 			'source/app/config.js',
+			'environment/config.template.js',
 			'source/app/states/layout.html',
 			'source/app/states/layout.module.js',
 			'source/app/states/layout.controller.js',
-			'source/app/filters/humanize.filter.js'
+			'source/app/states/home/home.html',
+			'source/app/states/home/home.module.js',
+			'source/app/states/home/home.controller.js',
+			'source/app/filters/humanize.filter.js',
 		];
 		// template copy
 		$.copy(files, angularVariables);
-	}
+	},
 
+	/**
+	 * ask type and name and copy dummy
+	 *
+	 */
+	makeAngularDummy: function () {
+		// get generator context from utils
+		var generator = $.generator();
+		var choices = [ // dummy list
+			{ name: 'angular Model', value: 'model' },
+			{ name: 'angular Filter', value: 'filter' },
+			{ name: 'angular Service', value: 'service' },
+			{ name: 'angular Directive', value: 'directive' },
+			{ name: 'angular Interceptor', value: 'interceptor' },
+		];
+		var firstCapital = {
+			'moel': true,
+			'service': true,
+			'filter': false,
+			'directive': false,
+			'interceptor': false
+		};
+		return new Promise( function ( resolve, reject ) {
+			//
+			$.askChoose('For what purpose you need a '+$.highlight('dummy')+' ?', {choices: choices})
+				.then( function ( type ) {
+					//
+					$.askString('Angular module '+$.highlight('name')+':', {default: 'dummy'})
+						.then( function ( name ) {
+							// name to angular named rule
+							name = $.angularize(name, firstCapital[name]);
+							var root = 'source/app/'+type+'s/';
+							generator.fs.copyTpl(
+								$('sourceDir', root+'dummy.js'),
+								$('destDir', root+name+'.'+type+'.js'),
+								{app: $.get('modules').root, name: name}
+							);
+							resolve();
+						});
+				});
+		});
+	}
 
 };
