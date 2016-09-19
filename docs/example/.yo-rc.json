@@ -1,0 +1,18 @@
+{
+  "generator-angular-dft": {
+    "user": "Sajera",
+    "appName": "example",
+    "appVersion": "0.0.1",
+    "cssFramework": null,
+    "bowerInit": false,
+    "npmInit": false,
+    "modules": {
+      "root": "exampleapp"
+    },
+    "instalation": "complete",
+    "preprocessors": {
+      "css": "less",
+      "js": "typeScript"
+    }
+  }
+}
