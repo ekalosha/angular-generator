@@ -29,9 +29,11 @@ var writeFiles = require('./build/writefiles.js');
  *
  * extend - (futures) can offer add in your aplication angular parts:
 		all the additional parts will be added to the core (.yo-rc.json) application module as a dependent on his elements
-		dummy service -
-		dummy filter -
-		dummy interceptor -
+		dummy directive
+		dummy filter
+		dummy interceptor
+		dummy service
+		dummy model
 
  * clear - it clear all files into directory
  */

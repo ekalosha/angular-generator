@@ -10,9 +10,9 @@ angular
 	.controller('layoutController', function ( $scope, $log, user ) {
 
 		var root = $scope.root = {
-			hello: 'Hello angular-dft !!!'
+			sayNo: function () {
+				$log.debug('Sorry but this state not specified by scaffolding.');
+			}
 		};
-
-		$log.debug('layoutController root.hello', root.hello );
 
 	});
