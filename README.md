@@ -1,4 +1,3 @@
-# Sorry release not ready yet.
 
 # generator-angular-dft [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Angular ui-router restangular ui-bootstrap </br>
@@ -18,6 +17,29 @@ Then generate your new project:
 
 ```bash
 yo angular-dft
+```
+
+To run project for developing:
+
+```bash
+gulp serve-dev
+```
+
+To run build project for production:
+
+```bash
+gulp build-prod
+```
+
+To use node environment you may write custom config (environment/fileName.json) and specified node environment (file name) then run:
+> To run project for developing with custom config 
+```bash
+gulp serve
+```
+
+> To run run build project for production with custom config 
+```bash
+gulp serve
 ```
 
 ## Getting To Know Yeoman
