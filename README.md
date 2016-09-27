@@ -39,7 +39,7 @@ gulp serve
 
 > To run run build project for production with custom config 
 ```bash
-gulp serve
+gulp build
 ```
 
 ## Getting To Know Yeoman
