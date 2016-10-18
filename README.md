@@ -1,5 +1,7 @@
 
-# generator-angular-dft [![NPM version][npm-image]][npm-url]
+[![NPM version][npm-image]][npm-url]
+
+# generator-angular-dft 
 > Angular ui-router restangular ui-bootstrap </br>
 > Generator of simple Angular project with some basic docs.
 
