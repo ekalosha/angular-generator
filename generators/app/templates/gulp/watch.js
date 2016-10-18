@@ -40,8 +40,8 @@ gulp.task('watch', function ( done ) {
 	/*-------------------------------------------------
 		When source is changed
 	---------------------------------------------------*/
-	gulp.watch(assetsPath, function ( event ) { $.browserSync.stream(event.path) });
-	gulp.watch(htmlPath,  function ( event ) { $.browserSync.stream(event.path) });
+	gulp.watch(assetsPath, function ( event ) { gulp.src( event.path ).pipe( $.browserSync.stream() ); });
+	gulp.watch(htmlPath,  function ( event ) { gulp.src( event.path ).pipe( $.browserSync.stream() ); });
 	gulp.watch(cssPath, ['inject-style']);
 	gulp.watch(jsPath, ['inject-scripts']);
 	gulp.watch(bower, ['inject-bower']);
