@@ -4,8 +4,6 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var beautify = require('gulp-beautify');
-
 /*-------------------------------------------------
 	GENERATOR ANGULAR-DFT
 ---------------------------------------------------*/
@@ -16,7 +14,7 @@ var writeFiles = require('./build/writefiles.js');
 
 
 /**
- * generetor have a three three ways.
+ * generetor have a three ways.
  *
  * installation - it works on first time (project generation)
  *
@@ -88,9 +86,10 @@ module.exports = yeoman.Base.extend({
 			var config = $.get();
 			if ( config['instalation'] == 'progress' || config['_privat']['repair'] ) {
 				var packageOptions = {
+					author: config.user,
 					name: config.appName,
 					version: config.appVersion,
-				}
+				};
 				// merge project/template bower.json and options from variables
 				writeFiles.writePackage('bower.json', packageOptions);
 				// if first install add owner like a contributor
