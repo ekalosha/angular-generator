@@ -9,8 +9,8 @@ var initOptions = {
 	'appName': 'app',
 	'appVersion': '0.0.1',
 	'cssFramework': null,
-	'bowerInit': false,
-	'npmInit': false,
+	// 'bowerInit': false,
+	// 'npmInit': false,
 	'modules': {
 		'root': 'app',
 
@@ -183,10 +183,10 @@ var variables = module.exports = {
 	install: function () {
 		return new Promise( function ( resolve, reject ) {
 			//
-			$.askСonfirm('Initialize the '+$.highlight('NPM')+' ?', {store: 'npmInit'})
+			$.askСonfirm('Initialize the '+$.highlight('NPM')+' ?')
 				.then( function ( npmInit ) {
 					// 
-					$.askСonfirm('Initialize the '+$.highlight('Bower')+' ?', {store: 'bowerInit'})
+					$.askСonfirm('Initialize the '+$.highlight('Bower')+' ?')
 						.then( function ( bowerInit ) {
 							resolve({ 'bower': bowerInit, 'npm': npmInit });
 						});

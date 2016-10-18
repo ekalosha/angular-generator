@@ -44,7 +44,7 @@
         "node": ">=4"
     },
     "scripts": {
-        "bower": "bower",
+        "install": "npm i && bower i",
         "build": "gulp build",
         "serve": "gulp serve",
         "serve-dev": "gulp serve-dev",
