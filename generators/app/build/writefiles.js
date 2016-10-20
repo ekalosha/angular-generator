@@ -72,7 +72,7 @@ module.exports = {
 			'source/styles/less',
 			'source/styles/sass',
 			'source/styles/styl',
-			'source/app/states'
+			'source/app/states',
 			'source/app/models',
 			'source/app/filters',
 			'source/app/services',
