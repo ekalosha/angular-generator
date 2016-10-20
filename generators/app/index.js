@@ -127,10 +127,12 @@ module.exports = yeoman.Base.extend({
 			var config = $.get();
 			if ( config['instalation'] == 'progress' || config['_privat']['repair'] ) {
 				if ( config['instalation'] == 'progress' ) {
+					// .gitignore isn't copying https://github.com/yeoman/generator/issues/812
+					// make a hack
+					generator.fs.copyTpl( $.sourceDir('template.gitignore'), $.destDir('.gitignore'), {});
 					// simple copy files
 					$.copy([
 						'.bowerrc',
-						'.gitignore',
 						'.npmignore',
 						'source/assets/images/favicon.ico',
 						'source/assets/images/favicon-16x16.png',
