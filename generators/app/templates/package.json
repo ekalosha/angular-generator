@@ -41,7 +41,8 @@
         "wiredep": "^4.0.0"
     },
     "engines": {
-        "node": ">=4"
+        "node": ">=4.4.5",
+        "npm": ">=3.10.5"
     },
     "scripts": {
         "install": "npm i && bower i",
