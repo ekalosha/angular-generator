@@ -72,11 +72,12 @@ module.exports = {
 			'source/styles/less',
 			'source/styles/sass',
 			'source/styles/styl',
-			'source/app/directives',
-			'source/app/filters',
-			'source/app/interceptors',
-			'source/app/services',
 			'source/app/states'
+			'source/app/models',
+			'source/app/filters',
+			'source/app/services',
+			'source/app/directives',
+			'source/app/interceptors',
 		]);
 
 		var variables = $.get();

@@ -1,5 +1,6 @@
 {
     "description": "description text",
+    "dependencies": {},
     "devDependencies": {
         "browser-sync": "^2.14.3",
         "browser-sync-spa": "^1.0.3",
@@ -45,11 +46,11 @@
         "npm": ">=3.10.5"
     },
     "scripts": {
-        "install": "npm i && bower i",
         "build": "gulp build",
         "serve": "gulp serve",
         "serve-dev": "gulp serve-dev",
-        "build-prod": "gulp build-prod"
-    },
-    "dependencies": {}
+        "build-prod": "gulp build-prod",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "log-env": "node -e \"console.log('NODE_ENV:\\n\\t'+ (process.env.NODE_ENV||'not specified') )\""
+    }
 }
