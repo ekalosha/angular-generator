@@ -142,7 +142,7 @@ module.exports = yeoman.Base.extend({
 		}
 	},
 	/*-------------------------------------------------
-		PHASE REPAIRING
+		PHASE CONFLICTS (changing exist files)
 	---------------------------------------------------*/
 	conflicts: function () {
 		var config = $.get();

@@ -120,7 +120,7 @@ module.exports = {
 			{ name: 'angular Interceptor', value: 'interceptor' },
 		];
 		var firstCapital = {
-			'moel': true,
+			'model': true,
 			'service': true,
 			'filter': false,
 			'directive': false,
@@ -134,7 +134,7 @@ module.exports = {
 					$.askString('Angular module '+$.highlight('name')+':', {default: 'dummy'})
 						.then( function ( name ) {
 							// name to angular named rule
-							name = $.angularize(name, firstCapital[name]);
+							name = $.angularize(name, firstCapital[type]);
 							var root = 'source/app/'+type+'s/';
 							generator.fs.copyTpl(
 								$('sourceDir', root+'dummy.js'),
