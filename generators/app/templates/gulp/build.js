@@ -121,7 +121,7 @@ var uglifyOptions = {
 ---------------------------------------------------*/
 var htmlMinOptions = {
 	removeEmptyAttributes: true,
-	removeAttributeQuotes: true,
+	removeAttributeQuotes: false,
 	collapseBooleanAttributes: true,
 	collapseWhitespace: true
 };
