@@ -44,7 +44,7 @@ $.gulpVars = {
 	// images, fonts and others processing paths
 	assets: {
 		root: '/assets',
-		img: '/image/**',
+		img: '/images/**',
 		font: '/fonts/**',
 	}
 };
