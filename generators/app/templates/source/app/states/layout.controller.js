@@ -7,11 +7,11 @@ angular
 	 */
 	.module('<%=angular.app%>.layout')
 
-	.controller('layoutController', function ( $scope, $log, user ) {
+	.controller('layoutController', function ( $scope, toastr, user ) {
 
 		var root = $scope.root = {
-			sayNo: function () {
-				$log.debug('Sorry but this state not specified by scaffolding.');
+			sayNo: function ( state ) {
+				toastr.error('Sorry but this state not specified by scaffolding.', state);
 			}
 		};
 

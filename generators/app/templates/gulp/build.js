@@ -88,7 +88,7 @@ gulp.task('template-cache', function() {
 ---------------------------------------------------*/
 var minOptions = {
 	removeEmptyAttributes: true,
-	removeAttributeQuotes: true,
+	removeAttributeQuotes: false,
 	collapseBooleanAttributes: true,
 	collapseWhitespace: true
 };
