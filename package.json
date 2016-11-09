@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-dft",
-  "version": "0.9.6",
+  "version": "1.0.0",
   "description": "Angular ui-router restangular ui-bootstrap",
   "homepage": "",
   "author": {
@@ -50,5 +50,5 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "license": "MIT"
+  "license": "Apache-2.0"
 }
