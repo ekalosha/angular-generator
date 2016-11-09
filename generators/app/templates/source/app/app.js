@@ -11,6 +11,8 @@ angular
 		'ui.router',
 		'restangular',
 		'ui.bootstrap',
+		'ngAnimate',
+		'toastr',
 		'<%=angular.app%>.layout'
 	])
 
