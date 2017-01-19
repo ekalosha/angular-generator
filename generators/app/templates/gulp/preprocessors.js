@@ -50,7 +50,7 @@ function coffeescript ( source, dest ) {
 // package less dependencies
 // "gulp-less": "^3.1.0",
 // "less-plugin-autoprefix": "^1.5.1",
-gulp.task('less', function () { return less( lessPath, path.dirname(lessPath) ); });
+gulp.task('less', function () { return less( lessPath, $.gulpVars.app.temp ); });
 function less ( source, dest ) {
 	var lessAutoprefix = new $.lessAutoprefix({ browsers: ['last 2 versions'] });
 	return gulp
@@ -62,7 +62,7 @@ function less ( source, dest ) {
 
 // package sass dependencies
 // "gulp-sass": "^2.3.2",
-gulp.task('sass', function () { return sass( sassPath, path.dirname(sassPath) ); });
+gulp.task('sass', function () { return sass( sassPath, $.gulpVars.app.temp ); });
 function sass ( source, dest ) {
 	return gulp
 		.src( source )
@@ -73,7 +73,7 @@ function sass ( source, dest ) {
 
 // package stylus dependencies
 // "gulp-stylus": "^2.5.0",
-gulp.task('stylus', function () { return stylus( stylusPath, path.dirname(stylusPath) ); });
+gulp.task('stylus', function () { return stylus( stylusPath, $.gulpVars.app.temp ); });
 function stylus ( source, dest ) {
 	return gulp
 		.src( source )

@@ -100,7 +100,7 @@ function angularFilter () {
 // package inject-scripts dependencies
 // "gulp-inject": "^4.1.0",
 gulp.task('inject-style', function() {
-	return injectStyle( gulp.src([cssPath].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))) );
+	return injectStyle( gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))) );
 });
 function injectStyle ( styles ) {
 	return gulp
@@ -123,7 +123,7 @@ gulp.task('inject', ['clean', 'preprocessor'], function () {
 	return gulp
 		.src( path.join(src, '/index.html') )
 		.pipe( $.wiredep.stream(wiredepOptions) )
-		.pipe( $.inject(gulp.src([cssPath].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
+		.pipe( $.inject(gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
 		.pipe( $.inject(angularFilter(), injectOptions) )
 		.pipe( gulp.dest(src) )
 		.pipe( gulp.dest(temp) );
@@ -132,7 +132,7 @@ gulp.task('inject-index', function () {
 	return gulp
 		.src( path.join(src, '/index.html') )
 		.pipe( $.wiredep.stream(wiredepOptions) )
-		.pipe( $.inject(gulp.src([cssPath].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
+		.pipe( $.inject(gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
 		.pipe( $.inject(angularFilter(), injectOptions) )
 		.pipe( gulp.dest(temp) )
 		.pipe( $.browserSync.stream() );
