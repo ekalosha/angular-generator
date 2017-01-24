@@ -14,7 +14,7 @@ var lessPath = path.join($.gulpVars.app.src, $.gulpVars.css.root, '/**/*.less');
 var sassPath = path.join($.gulpVars.app.src, $.gulpVars.css.root, '/**/*.{sass,scss}');
 
 var jsPath = path.join($.gulpVars.app.src, $.gulpVars.js.root, '/**/*.js');
-var cssPath = path.join($.gulpVars.app.src, $.gulpVars.css.root, '/**/*.css');
+var cssPath = [path.join($.gulpVars.app.src, $.gulpVars.css.root, '/**/*.css'), path.join($.gulpVars.app.temp, '/**/*.css')];
 var assetsPath = path.join($.gulpVars.app.src, $.gulpVars.assets.root, '/**/*.*');
 var htmlPath = [$.gulpVars.app.src+'/**/*.html', '!'+$.gulpVars.app.src+'/index.html'];
 var index = path.join($.gulpVars.app.src, '/index.html');
