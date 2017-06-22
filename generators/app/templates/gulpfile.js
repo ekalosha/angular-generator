@@ -77,31 +77,34 @@ gulp.task('default', ['clean'], function ( done ) {
 	 * from template
 ---------------------------------------------------*/
 function environment ( file ) {
-	if (file) {
-		environment.current = file+'.json';
-	}
-	// clear cash before require a json file
-	var regCache = new RegExp(environment.current);
-	for ( var name in require.cache ) {
-		if ( regCache.test(name) ) {
-			delete require.cache[name];
-			break;
-		}
-	}
-	return gulp
-		.src('./environment/config.template.js')
-		.pipe( $.tokenReplace({ global: require('./environment/'+environment.current) }) )
-		.pipe( $.rename( function ( path ) { path.basename = 'config'; }) )
-		.pipe( gulp.dest(path.join($.gulpVars.app.src, $.gulpVars.js.root)) )
-		.pipe( $.browserSync.stream() );
+    file&&(environment.current = file+'.json');
+    // clear cash before require a json file
+    var regCache = new RegExp(environment.current);
+    for ( var name in require.cache ) {
+        if ( regCache.test(name) ) {
+            delete require.cache[name];
+            break;
+        }
+    }
+    $.gulpVars.config = require('./environment/'+environment.current);
+    $.gulpVars.config.version = require('./package.json').version;
+    $.gulpVars.config.timestamp = (new Date()).toJSON();
+
+    console.log('\nENVIRONMENT from => ', environment.current,'\n', JSON.stringify($.gulpVars.config, null, 4),'\n');
+    return gulp
+        .src('./environment/config.template.js')
+        .pipe( $.tokenReplace({ global: {config: $.gulpVars.config} }) )
+        .pipe( $.rename( function ( path ) { path.basename = 'app-config'; }) )
+        .pipe( gulp.dest(path.join($.gulpVars.app.src, $.gulpVars.js.root)) )
+        .pipe( $.browserSync.stream() );
 }
 // already define configs
-gulp.task('env-dev', function() { return environment('development'); });
-gulp.task('env-prod', function() { return environment('production'); });
+gulp.task('env-dev', [], function() { return environment('development'); });
+gulp.task('env-prod', [], function() { return environment('production'); });
 // NODE_ENV
-gulp.task('env-node', function() { return environment(process.env.NODE_ENV||'development'); });
+gulp.task('env-node', [], function() { return environment(process.env.NODE_ENV||'development'); });
 // reload current enveroment
-gulp.task('env-reload', function() { return environment(); });
+gulp.task('env-reload', [], function() { return environment(); });
 
 
 /*-------------------------------------------------
