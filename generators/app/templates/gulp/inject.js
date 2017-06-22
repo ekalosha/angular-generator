@@ -44,7 +44,7 @@ var wiredepOptions = {
 	// 				return '<link rel="stylesheet" href="'+path.replace(/([\.\/])*bower_components\//, '')+'">';
 	// 			}
 	// 		}
-	// 	}	
+	// 	}
 	// }
 };
 function injectBower () {
@@ -120,20 +120,11 @@ function injectStyle ( styles ) {
 // "gulp-angular-filesort": "^1.1.1",
 // "gulp-angular-templatecache": "^2.0.0",
 gulp.task('inject', ['clean', 'preprocessor'], function () {
-	return gulp
-		.src( path.join(src, '/index.html') )
-		.pipe( $.wiredep.stream(wiredepOptions) )
-		.pipe( $.inject(gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
-		.pipe( $.inject(angularFilter(), injectOptions) )
-		.pipe( gulp.dest(src) )
-		.pipe( gulp.dest(temp) );
-});
-gulp.task('inject-index', function () {
-	return gulp
-		.src( path.join(src, '/index.html') )
-		.pipe( $.wiredep.stream(wiredepOptions) )
-		.pipe( $.inject(gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
-		.pipe( $.inject(angularFilter(), injectOptions) )
-		.pipe( gulp.dest(temp) )
-		.pipe( $.browserSync.stream() );
+    return gulp
+        .src( path.join(src, '/index.html') )
+        .pipe( $.replace('{BASE_URL}', $.gulpVars.config&&$.gulpVars.config.baseUrl ? $.gulpVars.config.baseUrl : '/') )
+        .pipe( $.wiredep.stream(wiredepOptions) )
+        .pipe( $.inject(gulp.src([cssPath, path.join(temp, '**/*.css')].concat(ignor($.gulpVars.css.root, $.gulpVars.css.ignores))), injectOptions) )
+        .pipe( $.inject(angularFilter(), injectOptions) )
+        .pipe( gulp.dest(temp) );
 });
