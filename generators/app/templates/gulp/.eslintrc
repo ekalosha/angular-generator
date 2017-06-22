@@ -1,9 +1,9 @@
 {
-  "env": {
-    "node": true
-  },
-  "parser": "espree",
-  "ecmaFeatures": {},
+    "env": {
+        "node": true
+    },
+    "parser": "espree",
+    "ecmaFeatures": {},
     "rules": {
         "no-alert": "off",
         "no-array-constructor": "off",

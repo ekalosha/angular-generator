@@ -16,7 +16,7 @@ target/
 *.iml
 .classpath
 .project
-.settings/ 
+.settings/
 .idea
 
 # Packages #
@@ -31,11 +31,11 @@ target/
 *.rar
 *.tar
 *.zip
- 
+
 # Logs and databases #
 ######################
 *.log
- 
+
 # OS generated files #
 ######################
 .DS_Store
