@@ -108,7 +108,13 @@ function formatTemplateCache ( templates ) {
 		.pipe( gulp.dest(path.join(temp, $.gulpVars.js.root)) );
 }
 
-
+/*-------------------------------------------------
+    example of addition "COPY" task
+---------------------------------------------------*/
+// gulp.task('copy-redirect-uri', function() {
+//     return gulp.src( path.join(src, 'redirect', '*') )
+//         .pipe( gulp.dest(path.join(dist, 'redirect')) );
+// });
 
 /*-------------------------------------------------
 	goes here to customize uglify
@@ -126,18 +132,17 @@ var htmlMinOptions = {
 	collapseWhitespace: true
 };
 
-
 gulp.task('dist', ['fonts', 'inject-template-cache'], function() {
 
 	return gulp
 		.src( path.join(temp, '/*.html') )
-		.pipe( $.useref() )
+		.pipe( $.useref( {} ) )
 		.pipe( $.IF('**/app.js', $.ngAnnotate()) )
 		.pipe( $.IF('**/app.js', $.uglify(uglifyOptions)) )
 			// replace font path in css libs like a bootstrap or font-awesome
 		.pipe( $.IF('**/vendor.css', $.replace('../fonts/', fontPathDist())) )
-		.pipe( $.IF('*.css', $.cssnano()) )
-		.pipe( $.IF('!*.html', $.rev()) )
+        .pipe( $.IF('!*.html', $.rev()) )
+        .pipe( $.IF('*.css', $.cssnano({safe: true})) ) // should be true because cssnano will break css output
 		.pipe( $.revReplace() )
 		.pipe( $.IF('index.html',  $.htmlmin(htmlMinOptions)) )
 		.pipe( gulp.dest(path.join(dist, '/')) )
