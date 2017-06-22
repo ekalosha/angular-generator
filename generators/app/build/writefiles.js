@@ -100,6 +100,9 @@ module.exports = {
             'source/app/states/home/home.module.js',
             'source/app/states/home/home.controller.js',
             'source/app/filters/humanize.filter.js',
+            'source/styles/all.less',
+            'source/styles/all.sass',
+            'source/styles/all.styl',
         ];
         // template copy
         $.copy(files, angularVariables);
