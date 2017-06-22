@@ -6,7 +6,7 @@ var $ = require('./util.js');
 
 /*-------------------------------------------------
 	for more understanding created aliases for paths
-	
+
 ---------------------------------------------------*/
 var src = $.gulpVars.app.src;
 var temp = $.gulpVars.app.temp;
@@ -17,7 +17,7 @@ var dist = $.gulpVars.app.dist;
 function fontPathDist () {
 	var root = $.gulpVars.assets.root.replace(/[\*\/]/g, '');
 	var dir = $.gulpVars.assets.font.replace(/[\*\/]/g, '');
-	return root+'/'+dir+'/';
+	return '../'+root+'/'+dir+'/';
 }
 // package fonts dependencies
 gulp.task('fonts', ['bower-fonts'], function() {
@@ -36,7 +36,7 @@ gulp.task('bower-fonts', function() {
 });
 function bowerFonts ( dest ) {
 	return gulp
-		.src( $.bowerFiles() )
+		.src( $.bowerFiles({debugging: true}) )
 		.pipe( $.filter('**/*.{eot,otf,svg,ttf,woff,woff2}') )
 		.pipe( $.flatten() )
 		.pipe( gulp.dest(dest) );
@@ -128,7 +128,7 @@ var htmlMinOptions = {
 
 
 gulp.task('dist', ['fonts', 'inject-template-cache'], function() {
-	
+
 	return gulp
 		.src( path.join(temp, '/*.html') )
 		.pipe( $.useref() )
