@@ -10,12 +10,6 @@ angular
     /**
      * app configuration from enveronment
      */
-    .module('<%=angular.app%>')
+    .module('exampleapp')
 
-    .constant('config', {
-        version: {{version}},
-        apiPath: '{{apiPath}}', // data type String may wrapped on quotes
-        some1: {{object}},
-        some2: {{array}},
-        static: {any: true}
-    });
+    .constant( 'config', {{config}});

@@ -90,10 +90,12 @@ function environment ( file ) {
     $.gulpVars.config.version = require('./package.json').version;
     $.gulpVars.config.timestamp = (new Date()).toJSON();
 
-    console.log('\nENVIRONMENT from => ', environment.current,'\n', JSON.stringify($.gulpVars.config, null, 4),'\n');
+    var viewedConfig = JSON.stringify($.gulpVars.config, null, 4);
+    console.log('\nENVIRONMENT from => ', environment.current,'\n', viewedConfig,'\n');
+
     return gulp
         .src('./environment/config.template.js')
-        .pipe( $.tokenReplace({ global: {config: $.gulpVars.config} }) )
+        .pipe( $.tokenReplace({ global: {config: viewedConfig} }) )
         .pipe( $.rename( function ( path ) { path.basename = 'app-config'; }) )
         .pipe( gulp.dest(path.join($.gulpVars.app.src, $.gulpVars.js.root)) )
         .pipe( $.browserSync.stream() );

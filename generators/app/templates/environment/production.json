@@ -1,7 +1,7 @@
 {
+    "baseUrl": "/",
     "production": true,
     "apiPath": "api/2",
-    "baseUrl": "/",
     "object": {
         "number": 1,
         "array": [1,2,3]
