@@ -6,7 +6,6 @@ var $ = require('./util.js');
 
 /*-------------------------------------------------
 	for more understanding created aliases for paths
-	
 	Each preprocessor searches for files in the specified path,
 	and after compilation adds the same with the same name
 	but a different extension ('.js'/'.css')
@@ -52,10 +51,10 @@ function coffeescript ( source, dest ) {
 // "less-plugin-autoprefix": "^1.5.1",
 gulp.task('less', function () { return less( lessPath, $.gulpVars.app.temp ); });
 function less ( source, dest ) {
-	var lessAutoprefix = new $.lessAutoprefix({ browsers: ['last 2 versions'] });
+	// var lessAutoprefix = new $.lessAutoprefix({ browsers: ['last 2 versions'] });
 	return gulp
 		.src( source )
-		.pipe( $.less({ plugins: [lessAutoprefix] }) )
+		.pipe( $.less(/*{ plugins: [lessAutoprefix] }*/) )
 		.pipe( gulp.dest(dest) );
 }
 
