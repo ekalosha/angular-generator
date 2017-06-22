@@ -8,57 +8,57 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <html lang="en">
-  <head>
-    <!-- base-url setting from environment config -->
-    <base href="{BASE_URL}">
-    <meta charset="utf-8">
-    <title><%=angular.title%></title>
-    <meta name="description" content="<%=angular.title%>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+    <head>
+        <!-- base-url setting from environment config -->
+        <base href="{BASE_URL}">
+        <meta charset="utf-8">
+        <title><%=angular.title%></title>
+        <meta name="description" content="<%=angular.title%>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
 
-    <!-- build:css({.tmp,src}) css/vendor.css -->
+        <!-- build:css({.tmp,src}) css/vendor.css -->
 
-    <!-- bower:css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+
+        <!-- endbuild -->
+
+        <!-- build:css({.tmp,src}) css/app.css -->
+
+        <!-- inject:css -->
+        <!-- endinject -->
+
+        <!-- endbuild -->
+
+    </head>
+
+    <body data-ng-app="<%=angular.app%>">
+        <!--[if lt IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+                your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="wrap" data-ui-view></div>
+
+    </body>
+
+    <!-- build:js({.tmp,src}) js/vendor.js -->
+
+    <!-- bower:js -->
     <!-- endbower -->
 
     <!-- endbuild -->
 
-    <!-- build:css({.tmp,src}) css/app.css -->
+    <!-- build:js({.tmp,src}) js/app.js -->
 
-    <!-- inject:css -->
+    <!-- inject:js -->
+    <!-- endinject -->
+
+    <!-- inject:template-cache -->
     <!-- endinject -->
 
     <!-- endbuild -->
-
-  </head>
-
-  <body data-ng-app="<%=angular.app%>">
-    <!--[if lt IE 8]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-        your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <div id="wrap" data-ui-view></div>
-
-  </body>
-
-  <!-- build:js({.tmp,src}) js/vendor.js -->
-
-  <!-- bower:js -->
-  <!-- endbower -->
-
-  <!-- endbuild -->
-
-  <!-- build:js({.tmp,src}) js/app.js -->
-
-  <!-- inject:js -->
-  <!-- endinject -->
-
-  <!-- inject:template-cache -->
-  <!-- endinject -->
-
-  <!-- endbuild -->
 
 </html>

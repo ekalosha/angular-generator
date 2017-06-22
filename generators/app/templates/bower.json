@@ -1,55 +1,55 @@
 {
-  "dependencies": {
-    "s-is": "^1.4.12",
-    "s-uid": "^1.3.0",
-    "jquery": "^3.1.0",
-    "moment": "^2.18.1",
-    "angular": "=1.5.8",
-    "lodash": "^4.15.0",
-    "PACE": "pace#1.0.2",
-    "bootstrap": "3.3.7",
-    "restangular": "^1.5.2",
-    "angular-touch": "=1.6.2",
-    "angular-moment": "^1.0.1",
-    "angular-base64": "^2.0.5",
-    "angular-toastr": "^2.1.1",
-    "angular-animate": "=1.5.8",
-    "angular-ui-utils": "^3.0.0",
-    "angular-bootstrap": "^2.1.3",
-    "angular-ui-router": "^0.4.2",
-    "ui-router-metatags": "^1.0.3",
-    "angular-ui-validate": "^1.2.2",
-    "font-awesome": "fontawesome#^4.6.3",
-    "s-roboto": "git://github.com/sajera/s-robobto.git#1",
-    "s-poppins": "git://github.com/sajera/s-poppins.git#1.1"
-  },
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "dist/js/bootstrap.min.js",
-        "dist/css/bootstrap.min.css",
-        "dist/css/bootstrap-theme.min.css",
-        "dist/fonts/glyphicons-halflings-regular.eot",
-        "dist/fonts/glyphicons-halflings-regular.svg",
-        "dist/fonts/glyphicons-halflings-regular.ttf",
-        "dist/fonts/glyphicons-halflings-regular.woff",
-        "dist/fonts/glyphicons-halflings-regular.woff2"
-      ]
+    "dependencies": {
+        "s-is": "^1.4.12",
+        "s-uid": "^1.3.0",
+        "jquery": "^3.1.0",
+        "moment": "^2.18.1",
+        "angular": "=1.5.8",
+        "lodash": "^4.15.0",
+        "PACE": "pace#1.0.2",
+        "bootstrap": "3.3.7",
+        "restangular": "^1.5.2",
+        "angular-touch": "=1.6.2",
+        "angular-moment": "^1.0.1",
+        "angular-base64": "^2.0.5",
+        "angular-toastr": "^2.1.1",
+        "angular-animate": "=1.5.8",
+        "angular-ui-utils": "^3.0.0",
+        "angular-bootstrap": "^2.1.3",
+        "angular-ui-router": "^0.4.2",
+        "ui-router-metatags": "^1.0.3",
+        "angular-ui-validate": "^1.2.2",
+        "font-awesome": "fontawesome#^4.6.3",
+        "s-roboto": "git://github.com/sajera/s-robobto.git#1",
+        "s-poppins": "git://github.com/sajera/s-poppins.git#1.1"
     },
-    "font-awesome": {
-      "main": [
-        "css/font-awesome.min.css",
-        "fonts/fontawesome-webfont.eot",
-        "fonts/fontawesome-webfont.svg",
-        "fonts/fontawesome-webfont.ttf",
-        "fonts/fontawesome-webfont.woff",
-        "fonts/fontawesome-webfont.woff2"
-      ]
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "dist/js/bootstrap.min.js",
+                "dist/css/bootstrap.min.css",
+                "dist/css/bootstrap-theme.min.css",
+                "dist/fonts/glyphicons-halflings-regular.eot",
+                "dist/fonts/glyphicons-halflings-regular.svg",
+                "dist/fonts/glyphicons-halflings-regular.ttf",
+                "dist/fonts/glyphicons-halflings-regular.woff",
+                "dist/fonts/glyphicons-halflings-regular.woff2"
+            ]
+        },
+        "font-awesome": {
+            "main": [
+                "css/font-awesome.min.css",
+                "fonts/fontawesome-webfont.eot",
+                "fonts/fontawesome-webfont.svg",
+                "fonts/fontawesome-webfont.ttf",
+                "fonts/fontawesome-webfont.woff",
+                "fonts/fontawesome-webfont.woff2"
+            ]
+        }
+    },
+    "devDependencies": {},
+    "resolutions": {
+        "angular-ui-router": "^0.4.2",
+        "angular": "=1.5.8"
     }
-  },
-  "devDependencies": {},
-  "resolutions": {
-    "angular-ui-router": "^0.4.2",
-    "angular": "=1.5.8"
-  }
 }
