@@ -46,6 +46,10 @@ $.gulpVars = {
         root: '/assets',
         img: '/images/**',
         font: '/fonts/**',
+    },
+    // default configs wich can be replace from environment
+    config: {
+        initSourceMap: false,
     }
 };
 
@@ -86,16 +90,21 @@ function environment ( file ) {
             break;
         }
     }
-    $.gulpVars.config = require('./environment/'+environment.current);
-    $.gulpVars.config.version = require('./package.json').version;
-    $.gulpVars.config.timestamp = (new Date()).toJSON();
+    var envPath = './environment/'+environment.current;
+    // merge gulp configs with environment
+    Object.assign($.gulpVars.config, {
+        // addition
+        timestamp: (new Date()).toJSON(),
+        version: require('./package.json').version,
+    // environment
+    }, require(envPath) );
 
-    var viewedConfig = JSON.stringify($.gulpVars.config, null, 4);
-    console.log('\nENVIRONMENT from => ', environment.current,'\n', viewedConfig,'\n');
+    var viewConfig = JSON.stringify($.gulpVars.config, null, 4);
+    console.log('\nENVIRONMENT from => ', envPath,'\n', viewConfig,'\n');
 
     return gulp
         .src('./environment/config.template.js')
-        .pipe( $.tokenReplace({ global: {config: viewedConfig} }) )
+        .pipe( $.tokenReplace({ global: {config: viewConfig} }) )
         .pipe( $.rename( function ( path ) { path.basename = 'app-config'; }) )
         .pipe( gulp.dest(path.join($.gulpVars.app.src, $.gulpVars.js.root)) )
         .pipe( $.browserSync.stream() );

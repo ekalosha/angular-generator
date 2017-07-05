@@ -1,6 +1,7 @@
 {
     "baseUrl": "/",
     "production": false,
+    "initSourceMap": true,
     "apiPath": "api/2",
     "object": {
         "number": 1,

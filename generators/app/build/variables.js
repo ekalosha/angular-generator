@@ -96,7 +96,7 @@ var variables = module.exports = {
                     .then( function ( res ) {
                         if ( res == 'clear' ) {
                             $('removeFiles', [
-                                '.gitignore', '.npmignore', '.bowerrc', '.bower/**',
+                                '.gitignore', '.npmignore', '.bowerrc', '.editorconfig', '.bower/**',
                                 '.tmp/**', '.yo-rc.json', '**/*.*', '**'
                             ]);
                             $('preventInstalation'); // throw error
