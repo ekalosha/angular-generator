@@ -137,6 +137,7 @@ gulp.task('dist', ['fonts', 'inject-template-cache'], function() {
     return gulp
         .src( path.join(temp, '/*.html') )
         .pipe( $.useref( {} ) )
+        .pipe( $.IF( $.gulpVars.config.initSourceMap, $.sourcemaps.init() ) )
         .pipe( $.IF('**/app.js', $.ngAnnotate()) )
         .pipe( $.IF('**/app.js', $.uglify(uglifyOptions)) )
             // replace font path in css libs like a bootstrap or font-awesome
@@ -144,7 +145,7 @@ gulp.task('dist', ['fonts', 'inject-template-cache'], function() {
         .pipe( $.IF('!*.html', $.rev()) )
         .pipe( $.IF('*.css', $.cssnano({safe: true})) ) // should be true because cssnano will break css output
         .pipe( $.revReplace() )
-        .pipe( $.IF('index.html',  $.htmlmin(htmlMinOptions)) )
+        .pipe( $.IF( $.gulpVars.config.initSourceMap, $.sourcemaps.write('maps') ) )
+        .pipe( $.IF('index.html', $.htmlmin(htmlMinOptions)) )
         .pipe( gulp.dest(path.join(dist, '/')) )
 });
-
