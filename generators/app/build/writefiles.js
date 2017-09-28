@@ -91,7 +91,7 @@ module.exports = {
         var files = [
             'source/index.html',
             'source/app/app.js',
-            'source/app/config.js',
+            'source/app/app-config.js',
             'environment/config.template.js',
             'source/app/states/layout.html',
             'source/app/states/layout.module.js',
