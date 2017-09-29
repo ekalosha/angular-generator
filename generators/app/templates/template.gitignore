@@ -66,4 +66,4 @@ dist
 credentials.json
 
 # app ignores
-# source/../config.js
+# source/../app-config.js
