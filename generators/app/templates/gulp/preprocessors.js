@@ -4,6 +4,16 @@ var gulp = require('gulp');
 var path = require('path');
 var $ = require('./util.js');
 
+/**
+ * prevent breaking errors
+ * .on('error', onError )
+ */
+function onError ( err ) {
+    var gutil = require('gulp-util');
+    gutil.log(gutil.colors.red('ERROR: =\ \n'), err, '\n___________________________________________________');
+    this.emit('end', new gutil.PluginError('ERROR', err, { showStack: true }));
+};
+
 /*-------------------------------------------------
     for more understanding created aliases for paths
     Each preprocessor searches for files in the specified path,
@@ -28,6 +38,7 @@ function typescript ( source, dest ) {
     return gulp
         .src( source )
         .pipe( $.typescript() )
+        .on('error', onError )
         .pipe( gulp.dest(dest) );
 }
 
@@ -39,6 +50,7 @@ function coffeescript ( source, dest ) {
     return gulp
         .src( source )
         .pipe( $.coffee({ bare: true }) )
+        .on('error', onError )
         .pipe( gulp.dest(dest) );
 }
 
@@ -55,6 +67,7 @@ function less ( source, dest ) {
     return gulp
         .src( source )
         .pipe( $.less(/*{ plugins: [lessAutoprefix] }*/) )
+        .on('error', onError )
         .pipe( gulp.dest(dest) );
 }
 
@@ -66,6 +79,7 @@ function sass ( source, dest ) {
     return gulp
         .src( source )
         .pipe( $.sass() )
+        .on('error', onError )
         .pipe( gulp.dest(dest) );
 }
 
@@ -77,6 +91,7 @@ function stylus ( source, dest ) {
     return gulp
         .src( source )
         .pipe( $.stylus() )
+        .on('error', onError )
         .pipe( gulp.dest(dest) );
 }
 
