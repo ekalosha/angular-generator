@@ -102,14 +102,7 @@ function eslint ( source ) {
     /*-------------------------------------------------
         goes here to customize rules "eslint"
     ---------------------------------------------------*/
-    var rulesOption = {
-        rules: {
-            'valid-typeof': 'warn',
-            'use-isnan': 'warn',
-        },
-        globals: ['angular', 'jQuery', '$'],
-        envs: []
-    };
+    var rulesOption = require( path.join(__dirname, 'eslintrc.json') );
     return gulp
         .src( source )
         .pipe( $.eslint(rulesOption) )
