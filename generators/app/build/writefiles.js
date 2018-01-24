@@ -48,7 +48,7 @@ module.exports = {
             'environment/development.json',
             'environment/production.json',
             'gulp/preprocessors.js',
-            'gulp/.eslintrc',
+            'gulp/eslintrc.json',
             'gulp/inject.js',
             'gulp/watch.js',
             'gulp/build.js',
