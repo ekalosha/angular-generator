@@ -8,6 +8,7 @@ angular
     .controller('homeController', function ( $scope, $log, fromRoot ) {
 
         var vm = $scope.vm = {
+            fromRoot: fromRoot,
             connections: [
                 {
                     rank: 1,
