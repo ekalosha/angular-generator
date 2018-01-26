@@ -129,6 +129,7 @@ module.exports = yeoman.Base.extend({
                 // simple copy files
                 $.copy([
                     '.bowerrc',
+                    'readme.md',
                     '.npmignore',
                     '.editorconfig',
                     'source/assets/images/favicon.ico',
