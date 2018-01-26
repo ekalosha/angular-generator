@@ -86,20 +86,20 @@ factory.highlight = function ( text ) { return chalk.blue( text ); }
  * @param: { String }
  * @returns: { String }
  */
-factory.abbr = function ( name, test1, test2 ) {
-    test1 = name.split(/[\d\W\\\-\._]/g);
-    test2 = name.match(/[A-Z]/g);
-    if ( test1&&test1.length >= 2 ) {
-        name = '';
-        for ( var part of test1 ) {
-            name+=part[0];
-        }
-        return name.toLowerCase();
-    } else if ( test2&&test2.length >= 2 ) {
-        return test2.join('').toLowerCase();
+factory.abbr = function ( name, sufix ) {
+    var res = '';
+    var upper = name.match(/[A-Z]/g);
+    var except = name.split(/[\d\W\\\-\._]/g);
+    if ( upper&&upper.length >= 2 ) {
+        res = upper.join('')+(sufix||'');
+    } else if ( except&&except.length >= 2 ) {
+        for ( var part of except )
+            part&&(res+=part);
+        res += (sufix||'');
     } else {
-        return name.substring(0,8).toLowerCase();
+        res = name[0] + (sufix||'');
     }
+    return res.substring(0,8).toLowerCase();
 }
 
 /**
