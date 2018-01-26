@@ -200,7 +200,7 @@ var variables = module.exports = {
     angularName: function ( generator ) {
         var variables = $.get();
         var modules = variables.modules;
-        modules.root = $('abbr', variables.appName)+'app';
+        modules.root = $('abbr', variables.appName, 'app');
 
         return new Promise( function ( resolve, reject ) {
             //
