@@ -126,10 +126,10 @@ module.exports = yeoman.Base.extend({
                 // .gitignore isn't copying https://github.com/yeoman/generator/issues/812
                 // make a hack
                 generator.fs.copyTpl( $.sourceDir('template.gitignore'), $.destDir('.gitignore'), {});
+                generator.fs.copyTpl( $.sourceDir('readme.md'), $.destDir('readme.md'), config);
                 // simple copy files
                 $.copy([
                     '.bowerrc',
-                    'readme.md',
                     '.npmignore',
                     '.editorconfig',
                     'source/assets/images/favicon.ico',
