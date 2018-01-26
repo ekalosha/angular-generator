@@ -1,9 +1,17 @@
 {
-  "env": {
-    "node": true
-  },
-  "parser": "espree",
-  "ecmaFeatures": {},
+    "env": {
+        "es6": false,
+        "node": false,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 5,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
+    },
+    "globals": ["angular", "jQuery", "$"],
     "rules": {
         "no-alert": "off",
         "no-array-constructor": "off",
@@ -14,7 +22,7 @@
         "no-class-assign": "error",
         "no-cond-assign": "error",
         "no-confusing-arrow": "off",
-        "no-console": "error",
+        "no-console": "warn",
         "no-const-assign": "error",
         "no-constant-condition": "error",
         "no-continue": "off",
@@ -108,7 +116,7 @@
         "no-trailing-spaces": "off",
         "no-this-before-super": "error",
         "no-throw-literal": "off",
-        "no-undef": "error",
+        "no-undef": "warn",
         "no-undef-init": "off",
         "no-undefined": "off",
         "no-unexpected-multiline": "error",
@@ -120,7 +128,7 @@
         "no-unsafe-negation": "off",
         "no-unused-expressions": "off",
         "no-unused-labels": "error",
-        "no-unused-vars": "error",
+        "no-unused-vars": "off",
         "no-use-before-define": "off",
         "no-useless-call": "off",
         "no-useless-computed-key": "off",
