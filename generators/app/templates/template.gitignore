@@ -53,7 +53,8 @@ Thumbs.db
 .sourceMate
 */.settings
 
-
+# build process #
+#################
 org.eclipse.jdt.core.prefs
 .bower
 bower_components
@@ -62,8 +63,18 @@ test/temp
 dist
 .tmp
 
-# deploy keys
+# deploy keys #
+###############
 credentials.json
+local.*
+.ssh
+.env
 
-# app ignores
+# markup #
+##########
+design/*
+wiki/*
+
+# app ignores #
+###############
 app-config.js
